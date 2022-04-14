@@ -10,10 +10,9 @@ jobs:
   testcov:
     runs-on: ubuntu-latest
     steps:
-        - name: use this action, test solution dir
-          uses: zyborg/dotnet-tests-report@v1
-          with:
-            project_path: test/TestProject1.sln
-            report_name: my_project_tests
-            report_title: My Project Tests
-            msbuild_verbosity: d
+   - uses: dorny/test-reporter@v1
+      with:
+        artifact: test-results            # artifact name
+        name: JEST Tests                  # Name of the check run which will be created
+        path: '*.xml'                     # Path to test results (inside artifact .zip)
+        reporter: dotnet-trx           # Format of test results
