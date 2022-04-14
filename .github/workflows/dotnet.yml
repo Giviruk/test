@@ -12,8 +12,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: dotnet test --logger "trx;LogFileName=test-results.trx"
+
+  test-report:
+    runs-on: ubuntu-latest
+    steps:
     - uses: dorny/test-reporter@v1
       with:
-        name: JEST Tests                  # Name of the check run which will be created
-        path: TestProject1/TestResults/*.trx                     # Path to test results (inside artifact .zip)
+        name: Tests
+        path: TestProject1/TestResults/*.trx
         reporter: dotnet-trx           # Format of test results
