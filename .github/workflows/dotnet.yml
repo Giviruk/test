@@ -16,7 +16,4 @@ jobs:
             project_path: ../TestProject1/TestProject1
             report_name: my_project_tests
             report_title: My Project Tests
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            gist_badge_label: 'Contoso Business: %Counters_passed%/%Counters_total%'
-            gist_token: ${{ secrets.GIST_TOKEN }}
             msbuild_verbosity: d
