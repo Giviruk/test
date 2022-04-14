@@ -1,0 +1,20 @@
+name: .NET
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  testcov:
+    runs-on: ubuntu-latest
+    steps:
+        - name: use this action, test solution dir
+          uses: zyborg/dotnet-tests-report@v1
+          with:
+            report_name: my_project_tests
+            report_title: My Project Tests
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            gist_badge_label: 'Contoso Business: %Counters_passed%/%Counters_total%'
+            gist_token: ${{ secrets.GIST_TOKEN }}
